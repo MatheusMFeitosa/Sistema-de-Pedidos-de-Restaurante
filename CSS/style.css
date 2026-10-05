@@ -1,0 +1,372 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --vermelho: #E71D36;
+    --preto: #011627;
+    --porcelana: #FDFFFC;
+    --verde-agua: #2EC4B6;
+    --amber: #FF9F1C;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--porcelana);
+    color: var(--preto);
+}
+
+header {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--preto);
+    color: var(--porcelana);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.area-principal {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 95%;
+    max-width: 1200px;
+    min-height: 100vh;
+    padding: 20px 0;
+    margin: 0 auto;
+}
+
+.conteudo-principal {
+    flex: 2;
+    min-width: 0;
+}
+
+.area-carrossel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: var(--preto);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo-carrossel {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+    transform: translateX(calc(var(--indice-carrossel, 0) * -100%)); 
+}
+
+.item-carrossel {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+}
+
+.imagem-carrossel {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.info-carrossel {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    padding: 15px 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--porcelana);
+}
+
+.btn-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--preto);
+    color: white;
+    z-index: 10;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-carrossel:hover {
+    background-color: var(--amber);
+    color: var(--preto);
+}
+
+.btn-comprar-carrossel {
+    margin-left: 15px;
+    padding: 5px 15px;
+}
+
+.esquerda {
+    left: 10px;
+}
+
+.direita {
+    right: 10px;
+}
+
+.painel-admin {
+    padding: 20px;
+    margin-bottom: 25px;
+    background: var(--porcelana);
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grupo-formulario-linha {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.painel-admin input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.grade-cardapio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.cartao {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+    background: var(--porcelana);
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.imagem-cartao {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: #eee;
+}
+
+.cartao h3 {
+    margin-bottom: 5px;
+}
+
+.cartao p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--preto);
+}
+
+.carrinho-lateral {
+    flex: 1;
+    min-width: 280px; 
+    position: sticky;
+    top: 20px;
+    padding: 20px;
+    background-color: var(--porcelana);
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.mensagem-vazia {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.controles-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.btn-quantidade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--amber);
+    color: var(--preto);
+    
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-quantidade:hover {
+    opacity: 0.8;
+}
+
+.grupo-formulario {
+    margin: 15px 0;
+}
+
+.grupo-formulario label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#nomeCliente, 
+#tipoEntrega {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.resumo-pedido h3 {
+    margin: 15px 0;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.btn-adicionar {
+    background-color: var(--amber);
+    color: var(--preto);
+}
+
+.btn-finalizar-pedido {
+    margin-bottom: 10px;
+    background-color: var(--verde-agua);
+    color: var(--preto);
+}
+
+.btn-limpar-carrinho {
+    background-color: var(--vermelho);
+    color: var(--porcelana);
+}
+
+.botao-acao {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.alerta-flutuante {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 15px 25px;
+    font-weight: bold;
+    background: var(--verde-agua);
+    color: var(--preto);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.alerta-flutuante.mostrar {
+    opacity: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+    background: var(--preto);
+    color: var(--porcelana);
+}
+
+.btn-login-admin {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: var(--porcelana);
+    border: 1px solid var(--porcelana);
+    padding: 8px 15px;
+}
+
+.btn-login-admin:hover {
+    background: var(--porcelana);
+    color: var(--preto);
+}
+
+.painel-admin,
+.btn-apagar-prato {
+    display: none;
+}
+
+body.modo-admin .painel-admin,
+body.modo-admin .btn-apagar-prato {
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .area-principal {
+        flex-direction: column;
+    }
+    
+    .carrinho-lateral {
+        width: 100%;
+        position: static; 
+    }
+}

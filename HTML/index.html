@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Só Burgão - Sistema de Pedidos</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="https://kit.fontawesome.com/d02a564654.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+
+    <div id="alertaFlutuante" class="alerta-flutuante">Ação realizada!</div>
+
+    <header>
+        <h1>Só <i class="fa-solid fa-burger"></i> Burgão</h1>
+        <button id="botaoAdmin" class="btn-login-admin" onclick="alternarModoAdmin()">
+            <i class="fa-solid fa-lock"></i> Admin
+        </button>
+    </header>
+
+    <main class="area-principal">
+        
+        <section class="conteudo-principal">
+            
+            <article class="area-carrossel">
+                <button class="btn-carrossel esquerda" onclick="moverCarrossel(-1, true)">
+                    <i class="fa-solid fa-circle-arrow-left"></i>
+                </button>
+                
+                <div id="conteudoCarrossel" class="conteudo-carrossel"></div>
+                
+                <button class="btn-carrossel direita" onclick="moverCarrossel(1, true)">
+                    <i class="fa-solid fa-circle-arrow-right"></i>
+                </button>
+            </article>
+
+            <section class="painel-admin">
+                <h3>Admin: Novo Produto</h3>
+                <div class="grupo-formulario-linha">
+                    <input type="text" id="novoNome" placeholder="Nome do Prato">
+                    <input type="number" id="novoPreco" placeholder="Preço (ex: 25.50)">
+                    <button class="btn-adicionar botao-acao" onclick="criarProdutoCardapio()">Adicionar ao Cardápio</button>
+                </div>
+            </section>
+
+            <section>
+                <h2>Cardápio</h2>
+                <div id="listaCardapio" class="grade-cardapio"></div>
+            </section>
+
+        </section>
+
+        <aside class="carrinho-lateral">
+            <h2><i class="fa-solid fa-cart-shopping"></i> Seu Carrinho</h2>
+            
+            <div id="itensCarrinho"></div>
+
+            <hr>
+
+            <div class="resumo-pedido">
+                <p>Subtotal: R$ <span id="valorSubtotal">0.00</span></p>
+
+                <div class="grupo-formulario">
+                    <label>Tipo de Entrega</label>
+                    <select id="tipoEntrega" onchange="atualizarTelaCarrinho()">
+                        <option value="0">Retirada no Local (Grátis)</option>
+                        <option value="2.50">Delivery (R$ 2,50)</option>
+                    </select>
+                </div>
+
+                <h3>Total R$ <span id="valorTotalPedido">0.00</span></h3>
+
+                <div class="grupo-formulario">
+                    <label>Seu nome</label>
+                    <input type="text" id="nomeCliente" placeholder="Digite seu nome para o pedido">
+                </div>
+                
+                <button class="btn-finalizar-pedido botao-acao" onclick="finalizarPedido()">Finalizar Pedido</button>
+                <button class="btn-limpar-carrinho botao-acao" onclick="limparCarrinho()">Limpar Carrinho</button>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; Só Burgão - Sistema restaurante para fins didáticos</p>
+    </footer>
+
+    <script src="../Scripts/model.js"></script>
+    <script src="../Scripts/gerenciador.js"></script>
+    <script src="../Scripts/interfaceUsuario.js"></script>
+    <script src="../Scripts/funcoes.js"></script>
+</body>
+</html>
